@@ -6,7 +6,7 @@
 
 Console.Write("Enter a 3-digit number: ");
 int number = Convert.ToInt32(Console.ReadLine());
-
+if (number < 0) number = -1 * number;
 if (number < 100 || number > 999) Console.WriteLine($"You've entered not a 3-digit number!");
 else
 {
