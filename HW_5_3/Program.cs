@@ -32,8 +32,8 @@ double max_min_dif = 0;
 
 void Max_min_dif(double[] set_nums)
 {
-    double min_item = numbers[0];
-    double max_item = numbers[0];
+    double min_item = set_nums[0];
+    double max_item = set_nums[0];
     for (int k = 1; k < set_nums.Length; k +=1)
     {
         if (set_nums[k] > max_item) max_item = set_nums[k];
