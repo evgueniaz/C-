@@ -17,11 +17,26 @@ double[] Fill_array(string[] arr)
     return data;
 }
 
+
+void Lines_position (double[] arr)
+{
+    if (arr[0] == arr[2] && arr[1] == arr[3])
+    Console.WriteLine("The lines coincide");
+    else if (arr[0] != arr[2] && arr[1] == arr[3])
+    Console.WriteLine("The lines are parallel");
+    else
+    {
+        double x = (arr[2] - arr[0])/(arr[1] - arr[3]);
+        double y = arr[1] * x + arr[0];
+        Console.WriteLine($"The lines intersect at the point ({x}; {y})");
+    }
+    
+}
+
 Fill_array(numbers);
 Console.WriteLine();
+Lines_position(data);
+WriteLine();
 
-double x = (data[2] - data[0])/(data[1] - data[3]);
-double y = data[1] * x + data[0];
-Console.WriteLine($"The lines intersect at the point ({x}; {y})");
-Console.WriteLine();
+
 
