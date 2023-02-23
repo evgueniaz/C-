@@ -11,20 +11,39 @@ int numRows = SetNumber("Rows");
 int numColumns = SetNumber("Columns");
 int numDepth = SetNumber("Depth");
 
-var matrix = GetMatrix(numRows, numColumns, numDepth);
+var uniqueValues = UniqueNums(numRows, numColumns, numDepth);
+var matrix = GetMatrix(numRows, numColumns, numDepth, uniqueValues);
 Print(matrix);
+UniqueNums(numRows, numColumns, numDepth);
+
+int[] UniqueNums(int rows, int columns, int depth)
+{
+    int[] uniqueNums = new int[rows*columns*depth];
+    for (int i = 0; i < uniqueNums.Length; i++)
+    {
+        var el = new Random().Next(10, 100);
+        if (uniqueNums.Contains(el)) i--;
+        else
+        {
+            uniqueNums[i] = el;
+        }
+    }
+    return uniqueNums;
+}
 
 
-int[,,] GetMatrix(int rows, int columns, int depth)
+int[,,] GetMatrix(int rows, int columns, int depth, int[] values)
 {
     int[,,] matr = new int[rows, columns, depth];
+    int count = 0;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
             for (int k = 0; k < depth; k++)
-            {
-                matr[i, j, k] = new Random().Next(10, 100);
+            {   
+                matr[i, j, k] = values[count];
+                count++;
             }
         }
     }
